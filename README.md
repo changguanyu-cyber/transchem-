@@ -30,8 +30,11 @@ sklearn == 1.8.0
 rdkit == 2025.9.6
 ```
 
-# hyperparameter settings
+# Hyperparameter Settings
 The hyperparameter settings can be found in `TransChemPlus/hyperparameter.txt`.
+
+# Pretrained Models
+The pretrained models can be found in `TransChemPlus/models`.
 
 # Pretraining
 Before pretraining, you need to set the dataset file path `csv_path` and the path where the pretrained model parameters will be saved `save_path`.
