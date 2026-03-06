@@ -1,4 +1,4 @@
-# ========== 依赖 ==========
+
 import torch
 import torch.nn.functional as F
 from torch import nn
@@ -58,10 +58,7 @@ except Exception:
         out = src.new_zeros((dim_size, src.size(1)))
         return out.index_add_(0, index, src)
 
-# -----------------------------
-# MyGCNConv
-# -----------------------------
-class MyGCNConv(nn.Module):
+class TransChemPlusGCNConv(nn.Module):
     def __init__(self, in_channels, out_channels, att_scale=1.0):
         super().__init__()
         self.lin_bond = nn.Linear(in_channels, out_channels, bias=False)
@@ -392,7 +389,7 @@ class SimpleGNN(nn.Module):
     def __init__(self, in_channels: int, hidden_channels: int=128, num_layers:int=3, return_embedding=False):
         super().__init__()
         self.return_embedding = return_embedding
-        self.convs = nn.ModuleList([MyGCNConv(in_channels if i==0 else hidden_channels, hidden_channels) for i in range(num_layers)])
+        self.convs = nn.ModuleList([TransChemPlusGCNConv(in_channels if i==0 else hidden_channels, hidden_channels) for i in range(num_layers)])
         self.lin = nn.Sequential(
             nn.Linear(hidden_channels, hidden_channels//2),
             nn.ReLU(),
@@ -518,5 +515,6 @@ for smi, y_true, y_pred in zip(smiles_list, ys, preds):
 
 pred_df = pd.DataFrame(rows)
 pred_df.to_csv(save_pred_csv, index=False)
+
 
 print("Predictions saved to:", save_pred_csv)
