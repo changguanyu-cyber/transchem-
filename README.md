@@ -9,9 +9,8 @@
 2. The datasets used in the experiments are located in the following folder path:
 
 ```
-root/
-├── TransChemPlus/
-│ └── data/
+TransChemPlus/
+├── data/
 ```
 
 
