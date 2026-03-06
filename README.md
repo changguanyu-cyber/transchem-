@@ -2,7 +2,7 @@
 **Task Example**: 
 
 # Approach
-![contents]([./fig_main.pdf](https://github.com/changguanyu-cyber/transchem-/blob/main/fig_main.pdf))
+![contents](https://github.com/changguanyu-cyber/transchem-/blob/main/fig_main.pdf)
 
 
 # Datasets
