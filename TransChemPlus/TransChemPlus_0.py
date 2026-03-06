@@ -20,7 +20,7 @@ RDLogger.DisableLog('rdApp.*')
 # Atom feature (7-dim)
 # -----------------------------
 def atom_features(atom: Chem.rdchem.Atom):
-    # ---------- 1. 基础化学属性 ----------
+
     atomic_num = atom.GetAtomicNum()
     formal_charge = atom.GetFormalCharge()
     total_h = atom.GetTotalNumHs()
@@ -31,7 +31,7 @@ def atom_features(atom: Chem.rdchem.Atom):
     radical_e = atom.GetNumRadicalElectrons()
     aromatic = int(atom.GetIsAromatic())
 
-    # ---------- 2. 环信息 ----------
+
     ring_member = int(atom.IsInRing())
     ring_count = sum(atom.IsInRingSize(i) for i in range(3, 8))
     ring_3 = int(atom.IsInRingSize(3))
@@ -43,7 +43,7 @@ def atom_features(atom: Chem.rdchem.Atom):
     neighbors = len(atom.GetNeighbors())
     heavy_neighbors = sum(1 for a in atom.GetNeighbors() if a.GetAtomicNum() > 1)
 
-    # ---------- 3. 电荷 / 体积 / 电负性 ----------
+
     try:
         g_charge = atom.GetDoubleProp("_GasteigerCharge")
         g_charge = int(g_charge * 100)
@@ -51,7 +51,6 @@ def atom_features(atom: Chem.rdchem.Atom):
         g_charge = 0
     pt = Chem.GetPeriodicTable()
 
-    # 真实元素电负性（Pauling scale）
     try:
         electronegativity = pt.GetElectronegativity(atomic_num)
         if electronegativity is None:
@@ -59,10 +58,10 @@ def atom_features(atom: Chem.rdchem.Atom):
     except:
         electronegativity = 0.0
 
-    # 粗略体积：用共价半径近似
+
     try:
         rc = pt.GetRcovalent(atomic_num)
-        volume = rc * rc * rc  # 或乘以常数缩放
+        volume = rc * rc * rc 
     except:
         volume = 0.0
 
@@ -290,3 +289,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
