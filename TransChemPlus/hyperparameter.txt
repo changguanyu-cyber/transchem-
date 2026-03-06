@@ -1,0 +1,16 @@
+Train：
+learning_rate: 1e-3
+batchsize: 64
+epochs: 300
+optimizer: Adam
+
+Model:
+hidden_channal: 512
+num_layers: 16
+embedding_dim: 512
+
+Data:
+atom_features: 25
+train_ratio: 0.72
+test_ratio: 0.08
+val_ratio: 0.20
