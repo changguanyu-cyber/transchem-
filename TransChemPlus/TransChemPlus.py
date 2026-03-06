@@ -1,4 +1,4 @@
-# ========== 依赖 ==========
+
 import torch
 import torch.nn.functional as F
 from torch import nn
@@ -561,5 +561,6 @@ for smi, y_true, y_pred in zip(test_smi, test_ys, test_preds):
 
 pred_df = pd.DataFrame(rows)
 pred_df.to_csv(save_pred_csv, index=False)
+
 
 print("Predictions saved to:", save_pred_csv)
