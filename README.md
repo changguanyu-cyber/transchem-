@@ -30,6 +30,7 @@ sklearn == 1.8.0
 rdkit == 2025.9.6
 ```
 # Training
+Before training, you need to set the dataset file path `csv_path` correctly.
 You can start training our model by using the following command:
 
 # Prediction
