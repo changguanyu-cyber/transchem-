@@ -2,7 +2,7 @@
 **Task Example**: 
 
 # Approach
-![image](fig_main.png)
+![image](fig_main.pdf)
 
 
 # Datasets
