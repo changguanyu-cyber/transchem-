@@ -10,7 +10,7 @@
 
 ```
 root/
-├── transchemplus/
+├── TransChemPlus/
 │ └── data/
 ```
 
